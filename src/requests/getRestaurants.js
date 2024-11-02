@@ -1,4 +1,6 @@
-const apiKey = 'AIzaSyDLudPDbzVAKFnVvDq3IJZj7l_-Rhk1098';
+require('dotenv').config(); 
+
+const apiKey = process.env.API_KEY; 
 
 const getRestaurants = async (city, limit) => {
     const searchResponse = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=top+attractions+in+${city}&key=${apiKey}`);
