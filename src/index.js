@@ -10,7 +10,8 @@ app.listen(3000, async () => {
 app.use(cors());
 
 app.get("/api/restaurants", async (req, res) => {
-    const restaurants = await getRestaurants("Lepzig", 20)
+    const place = req.query.place || "Berlin";
+    const restaurants = await getRestaurants(place, 20)
     res.send(restaurants)
 })
 
