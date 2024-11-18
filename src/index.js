@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const { getPlaces } = require("./requests/getPlaces")
+const { getPlaceDetails } = require("./requests/getPlaceDetails")
 const cors = require('cors');
 
 app.listen(3000, async () => {
@@ -18,7 +19,7 @@ app.get("/api/places", async (req, res) => {
 
 app.get("/api/details", async (req, res) => {
     const place_id = req.query.id
-    const placeDetails = await getPlaces(place_id)
+    const placeDetails = await getPlaceDetails(place_id)
     res.send(placeDetails)
 })
 
