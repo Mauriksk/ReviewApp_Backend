@@ -13,7 +13,7 @@ const getPlaceDetails = async (placeId) => {
 
     const photos = result.photos.length > 0 ? result.photos : null;
     
-    const imagesData = photos.map(img => img.photo_reference)
+    const imagesData = photos.map(img => `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${img.photo_reference}&key=${apiKey}` )
 
     return {
       ...result,
